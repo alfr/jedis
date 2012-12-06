@@ -76,6 +76,13 @@ public class ProtocolTest extends JedisTestBase {
         assertEquals(123, response);
     }
 
+    @Test
+    public void floatReply() {
+        InputStream is = new ByteArrayInputStream(":123\r\n".getBytes());
+        Object response = Protocol.read(new RedisInputStream(is));
+        assertEquals(123, response);
+    }
+    
     @SuppressWarnings("unchecked")
     @Test
     public void multiBulkReply() {

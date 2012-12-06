@@ -186,6 +186,13 @@ public class ShardedJedisPipeline extends Queable {
         return getResponse(BuilderFactory.LONG);
     }
 
+    public Response<Float> hincrByFloat(String key, String field, float value) {
+        Client c = getClient(key);
+        c.hincrByFloat(key, field, value);
+        results.add(new FutureResult(c));
+        return getResponse(BuilderFactory.FLOAT);
+    }
+
     public Response<Boolean> hexists(String key, String field) {
         Client c = getClient(key);
         c.hexists(key, field);

@@ -1,11 +1,13 @@
 package redis.clients.jedis;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.List;
+
 
 import redis.clients.jedis.Protocol.Command;
 import redis.clients.jedis.exceptions.JedisConnectionException;
@@ -189,6 +191,13 @@ public class Connection {
         flush();
         pipelinedCommands--;
         return (Long) Protocol.read(inputStream);
+    }
+
+    @SuppressWarnings("deprecation")
+	public Float getFloatReply() {
+        flush();
+        pipelinedCommands--;
+        return Float.valueOf(new String( (byte[]) Protocol.read(inputStream)));
     }
 
     public List<String> getMultiBulkReply() {

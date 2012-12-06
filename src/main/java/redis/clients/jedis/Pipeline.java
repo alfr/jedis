@@ -270,9 +270,9 @@ public class Pipeline extends Queable {
         return getResponse(BuilderFactory.LONG);
     }
 
-    public Response<Long> hincrBy(byte[] key, byte[] field, long value) {
-        client.hincrBy(key, field, value);
-        return getResponse(BuilderFactory.LONG);
+    public Response<Float> hincrByFloat(byte[] key, byte[] field, float value) {
+        client.hincrByFloat(key, field, value);
+        return getResponse(BuilderFactory.FLOAT);
     }
 
     public Response<Set<String>> hkeys(String key) {

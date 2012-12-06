@@ -55,6 +55,8 @@ public interface BinaryJedisCommands {
 
     Long hincrBy(byte[] key, byte[] field, long value);
 
+    Float hincrByFloat(byte[] key, byte[] field, float value);
+
     Boolean hexists(byte[] key, byte[] field);
 
     Long hdel(byte[] key, byte[]... field);
