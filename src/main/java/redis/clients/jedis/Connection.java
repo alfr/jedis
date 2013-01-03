@@ -200,6 +200,13 @@ public class Connection {
         return Float.valueOf(new String( (byte[]) Protocol.read(inputStream)));
     }
 
+    @SuppressWarnings("deprecation")
+	public Double getDoubleReply() {
+        flush();
+        pipelinedCommands--;
+        return Double.valueOf(new String( (byte[]) Protocol.read(inputStream)));
+    }
+
     public List<String> getMultiBulkReply() {
         return BuilderFactory.STRING_LIST.build(getBinaryMultiBulkReply());
     }

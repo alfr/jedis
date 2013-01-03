@@ -169,6 +169,10 @@ public class Client extends BinaryClient implements Commands {
 	hincrByFloat(SafeEncoder.encode(key), SafeEncoder.encode(field), value);
     }
 
+    public void hincrByDouble(final String key, final String field, final double value) {
+	hincrByDouble(SafeEncoder.encode(key), SafeEncoder.encode(field), value);
+    }
+
     public void hexists(final String key, final String field) {
 	hexists(SafeEncoder.encode(key), SafeEncoder.encode(field));
     }

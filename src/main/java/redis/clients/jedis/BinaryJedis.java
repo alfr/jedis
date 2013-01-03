@@ -799,6 +799,12 @@ public class BinaryJedis implements BinaryJedisCommands {
 	client.hincrByFloat(key, field, value);
 	return client.getFloatReply();
     }
+
+    public Double hincrByDouble(final byte[] key, final byte[] field, final double value) {
+	checkIsInMulti();
+	client.hincrByDouble(key, field, value);
+	return client.getDoubleReply();
+    }
     /**
      * Test for existence of a specified field in a hash.
      * 

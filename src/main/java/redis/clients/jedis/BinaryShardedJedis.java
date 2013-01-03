@@ -160,6 +160,11 @@ public class BinaryShardedJedis extends Sharded<Jedis, JedisShardInfo>
 	return j.hincrByFloat(key, field, value);
     }
 
+    public Double hincrByDouble(byte[] key, byte[] field, double value) {
+	Jedis j = getShard(key);
+	return j.hincrByDouble(key, field, value);
+    }
+
     public Boolean hexists(byte[] key, byte[] field) {
 	Jedis j = getShard(key);
 	return j.hexists(key, field);

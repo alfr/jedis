@@ -770,6 +770,12 @@ public class Jedis extends BinaryJedis implements JedisCommands {
 	return client.getFloatReply();
     }
 
+    public Double hincrByDouble(final String key, final String field, final double value) {
+	checkIsInMulti();
+	client.hincrByDouble(key, field, value);
+	return client.getDoubleReply();
+    }
+
     /**
      * Test for existence of a specified field in a hash.
      * 

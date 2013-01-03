@@ -153,6 +153,11 @@ public class BinaryTransaction extends Queable {
         return getResponse(BuilderFactory.FLOAT);
     }
 
+    public Response<Double> hincrByDouble(byte[] key, byte[] field, double value) {
+        client.hincrByDouble(key, field, value);
+        return getResponse(BuilderFactory.DOUBLE);
+    }
+
     public Response<Set<byte[]>> hkeys(byte[] key) {
         client.hkeys(key);
         return getResponse(BuilderFactory.BYTE_ARRAY_ZSET);

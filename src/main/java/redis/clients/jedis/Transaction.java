@@ -115,6 +115,11 @@ public class Transaction extends BinaryTransaction {
         return getResponse(BuilderFactory.FLOAT);
     }
 
+    public Response<Double> hincrByDouble(String key, String field, double value) {
+        client.hincrByDouble(key, field, value);
+        return getResponse(BuilderFactory.DOUBLE);
+    }
+
     public Response<Set<String>> hkeys(String key) {
         client.hkeys(key);
         return getResponse(BuilderFactory.STRING_SET);

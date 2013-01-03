@@ -275,6 +275,11 @@ public class Pipeline extends Queable {
         return getResponse(BuilderFactory.FLOAT);
     }
 
+    public Response<Double> hincrByDouble(byte[] key, byte[] field, double value) {
+        client.hincrByDouble(key, field, value);
+        return getResponse(BuilderFactory.DOUBLE);
+    }
+
     public Response<Set<String>> hkeys(String key) {
         client.hkeys(key);
         return getResponse(BuilderFactory.STRING_SET);
